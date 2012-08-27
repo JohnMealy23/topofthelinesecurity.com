@@ -1,0 +1,233 @@
+
+
+body{
+	color: #5B5B5B;
+    font-family: Tahoma;
+    font-size: 9pt;
+}
+#main {
+	width:1200px;
+	margin:0 auto;
+}
+#header {
+	width:1200px;
+	height:80px;
+	background-image:url(../images/head_bg.jpg);
+	background-repeat:repeat-x;
+}
+.main-head{color:#FFF; padding-top:20px; padding-left:100px; font-family:Tahoma, Geneva, sans-serif; font-size:20px; font-weight:bold;}
+#content {
+	width:1200px;
+	margin-top:20px;
+}
+#left {
+	float:left;
+	width:200px;
+/*	border:solid 1px #CF3;
+*/}
+#right {
+	float:left;
+	width:990px;
+	margin-left:5px;
+}
+.thead {
+    background: url("../images/thead_bg.gif") no-repeat scroll right center #6C6C6C;
+}
+.dhead {
+    color: #FDFCFC;
+    font-family: Tahoma;
+    font-size: 10pt;
+    padding: 0 0 0 10px;
+}
+.dmenu {
+    color: #5B5B5B;
+    font-family: Tahoma;
+    font-size: 9pt;
+    padding: 3px 10px;
+}
+.dmenu a {
+	color:#999;
+}
+#footer {
+	clear:both;
+	top:10px;
+	width:998;
+	height:40px;
+	padding-top:20px;
+	border: solid 1px #BCBCBC;
+	color: #000000;
+    font-family: Verdana;
+    font-size: 10px;
+}
+#login{
+	margin-left:300px; margin-top:100px; margin-bottom:100px; width:350px; border:solid 1px #BCBCBC; background-color:#6C6C6C;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+label{
+	color: #FDFCFC;
+    font-family: Tahoma;
+    font-size: 10pt;
+    padding: 0 0 0 10px;
+	font-weight:bold;
+}
+.textfield {
+	border:solid 1px #BCBCBC;
+    font-family: Tahoma;
+    font-size: 10pt;
+	color: #5B5B5B;
+}
+.err-msg {
+	 color:#F00;
+    font-family: Tahoma;
+    font-size: 10pt;
+}
+.link{
+	color: #5B5B5B;
+    font-family: Tahoma;
+    font-size: 9pt;
+}
+.select{
+	color: #5B5B5B;
+    font-family: Tahoma;
+    font-size: 9pt;
+}
+.button {
+	background-color:#6C6C6C;
+	border: solid ipx #BCBCBC;
+	color:#FFF;
+	font-weight:bold;
+}
+.msg {
+	color:#00F;
+	font-weight:bold;
+}
+#tab_content {
+	margin-top:10px;
+	margin-left:8px;
+}
+#tab_content div {
+	float:left;
+	padding:4px;
+	border:solid 1px #F00;
+	margin-right:1px;
+	background-color:#6C6C6C;
+	border: 1px solid #BCBCBC;
+}
+#tab_content a {
+	text-decoration:none;
+	color:#ffffff;
+}
+#main_content {
+	clear:both;
+	padding-top:10px;
+	margin-left:8px;
+}
+.img_div {
+	width:176px;
+	float:left;
+	border: 1px solid #BCBCBC;
+	padding:5px;
+	margin:2px;
+}
+a:visited {
+	outline:none;
+}
+.active-tab {
+	font-weight:bold;
+}
+.tableborder
+	{
+		border:solid 1px #CCC;
+	}
+	
+	.tableheadings
+	{
+		font-size:18px;
+		font-weight:bold;
+		color:#FFF;
+		background-color:#666;
+	}
+	
+	.oddrow
+	{
+		background-color:#CCC;
+	}
+	
+	.evenrow
+	{
+		background-color:#FFC;
+	}
+	
+	.titlelink
+	{
+		text-decoration:none;
+		color:#093;
+	}
+	
+	.otherlink
+	{
+		text-decoration:none;
+	}
+	
+	/********************************************
+				Tabs Main
+/*******************************************/
+.buttonsMain {
+	width:352px;
+	margin: 20px auto 0;
+}
+.buttonsMain .buttons01 { 
+	margin:0 auto;
+	line-height:40px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	color:#ffffff;
+	background:url(../images/btnBg.png) repeat-x;
+	font-size:12px;
+	text-align:center;
+	width: 350px;
+	margin-top:15px;
+	border:solid 1px #55791b;
+    border-radius: 12px 12px 12px 12px;
+}
+.buttonsMain .buttons01 span{
+	width:7px;
+	height:7px;
+	margin:0 7px;
+}
+.buttonsMain .buttons02 { 
+	margin:0 auto;
+	line-height:40px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	color:#ffffff;
+	background:url(../images/btnBg.png) repeat-x;
+	font-size:12px;
+	text-align:center;
+	width:282px;
+	margin-top:15px;
+	border:solid 1px #55791b;
+    border-radius: 12px 12px 12px 12px;
+}
+.buttonsMain .buttons02 span{
+	width:7px;
+	height:7px;
+	margin:0 7px;
+}
+.buttonsMain .buttons03 { 
+	margin:0 auto;
+	line-height:40px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	color:#ffffff;
+	background:url(../images/btnBg.png) repeat-x;
+	font-size:12px;
+	text-align:center;
+	width:212px;
+	margin-top:15px;
+	border:solid 1px #789839;
+    border-radius: 12px 12px 12px 12px;
+}
+.buttonsMain .buttons03 span{
+	width:7px;
+	height:7px;
+	margin:0 7px;
+}
