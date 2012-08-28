@@ -28,9 +28,6 @@ class Users_model extends CI_Model
     }
 	
 	
-	
-	
-	
     // check for allowed region
     //public function add_event($new_user_vals , $arrgroup)
     public function add_registration($new_user_vals)
@@ -84,9 +81,9 @@ class Users_model extends CI_Model
     }
 
 
-    public function get_event_detail($event_type)
+    public function get_event_detail($event_url)
     {
-        $event_detail_q = "SELECT * FROM events where event_type = '".$event_type."' and fo_visibility = 1 order by sort_order asc";
+        $event_detail_q = "SELECT * FROM events where event_url = '".$event_url."' and fo_visibility = 1 order by sort_order asc";
         $query = $this->db->query($event_detail_q);
         if( $query->num_rows() > 0 ) 
         {

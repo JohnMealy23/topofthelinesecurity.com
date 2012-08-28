@@ -5,23 +5,26 @@ header('Cache-Control: no-store, no-cache, must-revalidate');  // HTTP 1.1
 header('Cache-Control: post-check=0, pre-check=0', false);
 header('Pragma: no-cache');       
 ?>
-<?php include("header.php");?>
 
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-    
-        <tr>
-            <td class="thead" height="23"><div class="dhead"><b>Event Details</b></div></td>
-        </tr>
-        <tr height="3"><td></td></tr>
-        <tr>
-            <td style="border: 1px solid #BCBCBC">
-               <!--
-<form action="<?php echo base_url();?>support/create_user" method="post">
--->
-               
-               
-<!--                <div style="float:right; padding-right:10px;"><a href="<?php echo base_url();?>index.php/admin/event_list" class="link">View Events</a></div>-->
-                <h3 style="padding-left:5px;">Event Details</h3>
+	<div class="ContentImage">
+		<img src="/images/CoursesBackground.png">
+	</div>
+    <div class="PageTitle"><h2><?php echo $event_name ?></h2></div>
+	<div class="PageDescription">
+		<?php
+		/*
+			echo "Event Name: ".$event_name."<br>";
+			if($event_name = 'NRA Basic Firearm Training Program') {
+				echo 'NRA Desc';
+			} elseif ($event_name = 'Utah Concealed Firearm Training') {
+				include('UtahDescription.php');
+			} else {
+				echo "";
+			}
+			*/
+		?>
+	</div>
+	
                 <table width="100%" cellpadding="5">
                 <?php if ($msg !="") {?>
                 <tr>
@@ -37,24 +40,19 @@ header('Pragma: no-cache');
                     
                     foreach($event_detail as $index)
                     {
-						echo "<tr><td width=90><b>Name: </b></td><td><a href=".base_url()."_index.php?courses/registration/".$index->event_type."/".$index->event_id.">".$index->name."</a></td></tr>"; 
-						echo "<tr><td width=90><b>Description: </b></td><td>".$index->description."</td></tr>"; 
-                        echo "<tr><td width=90><b>Event Date: </b></td><td>".date("F d, Y",strtotime($index->date))."</td></tr>";    
-                        echo "<tr><td width=90><b>Price: </b></td><td>$".$index->price."</td></tr>";    
-                        echo "<tr><td width=90><b>Sort Order: </b></td><td>".$index->sort_order."</td></tr>";    
-                        echo "<tr><td colspan=2><b><a href=".base_url()."_index.php?courses/registration/".$index->event_type."/".$index->event_id.">Get Registered</a></b></td></tr>";    
-                        echo "<tr><td height=30></td></tr>";
-                        //echo "<tr><td><b>Event Date: </b></td><td>".$event_detail[0]->date."</td></tr>";    
+						echo "<div class='EventInstance'>";
+							echo "<h3>";
+								if($index->name != '') {
+									echo "<div class='EventTitle'><a href=".base_url()."training/courses/registration/".$index->event_url ."/".$index->event_id.">".$index->name."</a>: </div>"; 
+								}
+								echo "<div class='EventDate'>".date("F d, Y",strtotime($index->date))."</div>"; 
+							echo "</h3>";
+							echo "<div class='EventProp'>".$index->description."</div>"; 
+							echo "<div class='EventProp'>$".$index->price."</div>";    
+							//echo "<div class='EventProp'>Sort Order: ".$index->sort_order."</div>";    
+							echo "<div class='EventProp'><a href=".base_url()."training/courses/registration/".$index->event_url."/".$index->event_id.">Register</a></b></div>";
+						echo "</div>";
                     }
                     ?>
-                    
                    
-                    
-                    
                 </table>
-                
-                
-        </td></tr>
-        </table>
-  
-<?php include("footer.php");?>

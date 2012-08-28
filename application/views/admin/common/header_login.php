@@ -10,8 +10,13 @@
 </head>
 <body>
 	<div id="main">
-    	<div id="header">
-        	<div class="main-head">Admin Panel</div>
-        </div>
+       	<div id="header">
+			<!--<div class="main-head">Admin Panel</div>-->
+			<div id="Logo">
+			</div>
+			<div id="SiteSection" class="Extrude">
+				<h1><?php echo $page_title; ?></h1>
+			</div>
+		</div>
     	<div id="content">
       

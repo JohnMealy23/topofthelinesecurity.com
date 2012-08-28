@@ -5,8 +5,6 @@ header('Cache-Control: no-store, no-cache, must-revalidate');  // HTTP 1.1
 header('Cache-Control: post-check=0, pre-check=0', false);
 header('Pragma: no-cache');       
 ?>
-<?php include("header.php");
-
 //echo "<pre>event_detail: ";   print_r($event_detail);   echo "</pre>";
 ?>
 
@@ -22,10 +20,10 @@ header('Pragma: no-cache');
 <form action="<?php echo base_url();?>support/create_user" method="post">
 -->
                <?php 
-               //$return_url = base_url()."_index.php?courses/registration/".$type."/".$event_id;
+               //$return_url = base_url()."index.php?courses/registration/".$type."/".$event_id;
                //echo "<br>Base url: ".$return_url;
                
-              // echo form_open("".base_url()."_index.php?courses/registration",array("method"=>"post","onsubmit"=>"javascript:return validate_register_values();"));
+              // echo form_open("".base_url()."index.php?courses/registration",array("method"=>"post","onsubmit"=>"javascript:return validate_register_values();"));
                
                
                // uncomment below with js function
@@ -51,7 +49,7 @@ header('Pragma: no-cache');
                 <h3 style="padding-left:5px;">Event Registration</h3>
                 <table width="100%" cellpadding="5">
                 <?PHP
-                echo form_open("".base_url()."_index.php?courses/registration",array("method"=>"post","onsubmit"=>"javascript:return validate_register_values();"));
+                echo form_open("".base_url()."index.php?courses/registration",array("method"=>"post","onsubmit"=>"javascript:return validate_register_values();"));
                 ?>
                                 
                 <?php if ($msg !="") {?>

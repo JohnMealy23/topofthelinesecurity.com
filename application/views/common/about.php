@@ -5,15 +5,13 @@ header('Cache-Control: no-store, no-cache, must-revalidate');  // HTTP 1.1
 header('Cache-Control: post-check=0, pre-check=0', false);
 header('Pragma: no-cache');       
 ?>
-	<div class="ContentImage">
-		<img src="/images/CoursesBackground.png">
-	</div>
-    <div class="PageTitle"><h2><?php echo $page_title; ?></h2></div>
+	<img src="/images/CoursesBackground.png" class="ContentBackground">
+    <div class="PageTitle"><h2>Courses</h2></div>
 	<div class="PageDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</div>
            <!--<form action="<?php echo base_url();?>support/create_user" method="post">-->
                
 
-<!--<div style="float:right; padding-right:10px;"><a href="<?php echo base_url();?>admin/event_list" class="link">View Events</a></div>-->
+<!--<div style="float:right; padding-right:10px;"><a href="<?php echo base_url();?>index.php/admin/event_list" class="link">View Events</a></div>-->
 	<div class="PageContent"><?php if ($msg !="") {?>
    <div class='msg'><?php echo $msg;?></div>
 		<?php }?>
@@ -26,9 +24,8 @@ header('Pragma: no-cache');
 			$total_events = count($events_arr);
 			for($i=0;$i<$total_events;$i++)
 			{    
-				$EventURL = str_replace(" ", "_", "$events_arr[$i]");
 				//echo "<br>Events: ".$events_list[0]->events;
-				echo "<div class='CourseInstance'><a href=".base_url()."training/courses/event/".$EventURL.">".$events_arr[$i]."</a></div>";
+				echo "<div class='CourseInstance'><a href=".base_url()."index.php?courses/event/".$events_arr[$i].">Events ".$events_arr[$i]."</a></div>";
 			}
 		}    
 		?>

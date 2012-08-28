@@ -5,7 +5,6 @@ header('Cache-Control: no-store, no-cache, must-revalidate');  // HTTP 1.1
 header('Cache-Control: post-check=0, pre-check=0', false);
 header('Pragma: no-cache');       
 ?>
-<?php include("header.php");?>
 <script type="text/JavaScript">
  
 function confirmDelete(){
@@ -28,7 +27,7 @@ else
                <!--
 <form action="<?php echo base_url();?>support/create_user" method="post">
 -->
-               <?php echo form_open("".base_url()."_index.php?admin/create_event",array("method"=>"post","onsubmit"=>"javascript:return check_pw_length('password');"));?>
+               <?php echo form_open("".base_url()."index.php?admin/create_event",array("method"=>"post","onsubmit"=>"javascript:return check_pw_length('password');"));?>
                
 
                 <div style="float:right; padding-right:10px;">
@@ -67,8 +66,8 @@ else
                     echo "<td align=center>".$user->max_num_of_registrants."</td>";
                     echo "<td align=center>".$user->event_type."</td>";
                     echo "<td>
-                            <a href=".base_url()."_index.php?admin/create_event/".$user->event_id.">Edit</a>&nbsp;&nbsp;
-                            <a onclick=\"return confirm('Are you sure you want to delete this event?')\"  href=".base_url()."_index.php?admin/event_list/".$user->event_id.">Delete</a>&nbsp;&nbsp;
+                            <a href=".base_url()."index.php?admin/create_event/".$user->event_id.">Edit</a>&nbsp;&nbsp;
+                            <a onclick=\"return confirm('Are you sure you want to delete this event?')\"  href=".base_url()."index.php?admin/event_list/".$user->event_id.">Delete</a>&nbsp;&nbsp;
                             <a href=".base_url()."$user->name"."_event_$user->event_id.csv>CSV</a>    
                         </td>";
                     echo "</tr>";
@@ -87,4 +86,3 @@ else
         </td></tr>
         </table>
 </div>  
-<?php include("footer.php");?>

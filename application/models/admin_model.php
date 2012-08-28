@@ -69,10 +69,15 @@ class Admin_model extends CI_Model
 	   //}
 	   //else
 	   //{
-              $insert_q = "INSERT INTO events (name,description,date , price , sort_order , fo_visibility , max_num_of_registrants , event_type ) 
+							$insert_q = "INSERT INTO events (name,description,date , price , sort_order , fo_visibility , max_num_of_registrants , event_type , event_url ) 
                             VALUES (".$this->db->escape($new_user_vals['name']).",".$this->db->escape($new_user_vals['description']).",".$this->db->escape($new_user_vals['date'])." , ".$this->db->escape($new_user_vals['price'])." ,
                             ".$this->db->escape($new_user_vals['sort_order'])." , ".$this->db->escape($new_user_vals['fe_visibility'])." ,
-                            ".$this->db->escape($new_user_vals['no_registrants'])." , ".$this->db->escape($new_user_vals['event_type']).")";
+                            ".$this->db->escape($new_user_vals['no_registrants'])." , ".$this->db->escape($new_user_vals['event_type'])." , ".$this->db->escape($new_user_vals['event_url']).")";
+							
+							
+							
+							
+							
               //echo "<br>insert_q : ".$insert_q;
               //die();
               $query = $this->db->query($insert_q);

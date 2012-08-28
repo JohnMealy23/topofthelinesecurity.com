@@ -1,4 +1,4 @@
-<?php include("header.php");?>
+
 <div id="right">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
@@ -15,4 +15,3 @@
         </td></tr>
         </table>
 </div>  
-<?php include("footer.php");?>

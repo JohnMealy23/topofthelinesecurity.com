@@ -1,4 +1,4 @@
-<?php include("header.php");?>
+
     <div id="right">
 <?php $heading = "Reset Password";  ?>
 <form method="post" onsubmit="return validate_reset_password_form();">
@@ -50,4 +50,4 @@
     </table>
     </form>    
   </div>
-  <?php include("footer.php");?>
+  

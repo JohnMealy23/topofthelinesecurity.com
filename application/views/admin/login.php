@@ -1,12 +1,8 @@
-<?php include("header_login.php");?>
-<div id="right" style="width:998px;">
+<div id="right">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
-        <tr>
-            <td class="thead" height="23"><div class="dhead"><b>Login</b></div></td>
-        </tr>
         <tr height="3"><td></td></tr>
         <tr>
-            <td style="border: 1px solid #BCBCBC">
+            <td>
                
                 <div id="login">
                 	<form name="loginForm" id="loginForm" method="post" action="">
@@ -36,4 +32,3 @@
         </td></tr>
         </table>
 </div>  
-<?php include("footer.php");?>

@@ -9,7 +9,6 @@ header('Pragma: no-cache');
  #msg{ font-size:16px; font-weight:bold;border:solid 1px #FF8040; background-color: #FFFFB3; color: green; padding:10px; margin:10px;}
  #err{ font-size:16px; font-weight:bold;border:solid 1px #FF8040; background-color: #FFFFB3; color: red; padding:10px; margin:10px;}
 </style>
-<?php include("header.php");?>
     <div id="right">
       <?php //if($this->input->get('msg') != ''){
           if($this->input->get('msg') == 1){
@@ -98,4 +97,3 @@ header('Pragma: no-cache');
 $('#records th').css({'text-align':'left','background-color':'#396D00','padding-left':'5px','color':'#fff','height':'30px'});
 
 </script>
-	<?php include("footer.php");?>

@@ -45,7 +45,7 @@
 | the active record class
 */
 
-//if ( substr( $_SERVER['HTTP_HOST'], 0, 3 ) == 'dev' ) { //Localhost
+if ( substr( $_SERVER['HTTP_HOST'], 0, 3 ) == 'dev' ) { //Localhost
 	$active_group = 'default';
 	$active_record = TRUE;
 
@@ -64,7 +64,7 @@
 	$db['default']['swap_pre'] = '';
 	$db['default']['autoinit'] = TRUE;
 	$db['default']['stricton'] = FALSE;
-/* } else { 
+ } else { 
 	$active_group = 'default';
 	$active_record = TRUE;
 
@@ -83,7 +83,7 @@
 	$db['default']['swap_pre'] = '';
 	$db['default']['autoinit'] = TRUE;
 	$db['default']['stricton'] = FALSE;
-}*/
+}
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */

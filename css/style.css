@@ -1,34 +1,95 @@
+a:link { 
+	color: white; 
+	text-decoration: none;
+}
 
+a:visited { 
+	color: white; 
+	text-decoration: none;
+}
+
+a:active { 
+	color: #666; 
+	text-decoration: none;
+}
+
+a:hover { 
+	color: #CACACA; 
+	text-decoration: none;
+}
 
 body{
 	color: #5B5B5B;
     font-family: Tahoma;
     font-size: 9pt;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	font-family: 'Cabin Condensed', sans-serif;
+	background: #e6e6e6;
+	letter-spacing: .25em;
 }
+
+h1 {
+	font-size: 32px;
+	margin-top: 2px;
+	padding: 0px;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 24px;
+	margin: 0px;
+	padding: 0px;
+	color: #FFCD48;
+	font-weight: bold;
+}
+
 #main {
-	width:1200px;
-	margin:0 auto;
+	width:940px;
+	/* min-height: 700px; */
+	margin:70px auto 0px auto;
+	background: black;
+	border: 3px solid #ffcd48;
+	box-shadow: 0px 0px 20px black;
+	position: relative;
 }
 #header {
-	width:1200px;
-	height:80px;
-	background-image:url(../images/head_bg.jpg);
-	background-repeat:repeat-x;
+	font-weight: 500;
+	text-shadow: color: rgba(255,255,255,.1);
+	width: 940px;
+	color: #f1f1f1;
+	position: relative;
+	z-index: 1;
 }
 .main-head{color:#FFF; padding-top:20px; padding-left:100px; font-family:Tahoma, Geneva, sans-serif; font-size:20px; font-weight:bold;}
+
 #content {
-	width:1200px;
-	margin-top:20px;
+	width:100%;
+	position: relative;
+	font-family: 'Cabin Condensed', sans-serif;
+	letter-spacing: .25em;
 }
-#left {
-	float:left;
-	width:200px;
-/*	border:solid 1px #CF3;
-*/}
+
+.ContentImage {
+	width: 940px;
+	height: 236px;
+	/* margin-bottom: -55px; */
+	overflow: hidden;
+}
+
+.AdminContainer {
+	text-align: center;
+}
+
 #right {
 	float:left;
-	width:990px;
-	margin-left:5px;
+	width:735px;
+	margin: 30px 0px 0px 160px;
+	font-family: 'Cabin Condensed', sans-serif;
+	color: white;
+	text-align: left;
+	font-size: 15px;
 }
 .thead {
     background: url("../images/thead_bg.gif") no-repeat scroll right center #6C6C6C;
@@ -50,17 +111,20 @@ body{
 }
 #footer {
 	clear:both;
-	top:10px;
-	width:998;
 	height:40px;
 	padding-top:20px;
-	border: solid 1px #BCBCBC;
-	color: #000000;
-    font-family: Verdana;
+	border-top: solid 1px #E6E6E6;
+	color: #E6E6E6;
     font-size: 10px;
 }
 #login{
-	margin-left:300px; margin-top:100px; margin-bottom:100px; width:350px; border:solid 1px #BCBCBC; background-color:#6C6C6C;
+	margin-left:130px; 
+	margin-top:60px; 
+	margin-bottom:100px; 
+	width:350px; 
+	/*border:solid 1px #BCBCBC; 
+	background-color:#6C6C6C;
+	*/
 	padding-top:20px;
 	padding-bottom:20px;
 }
@@ -231,3 +295,234 @@ a:visited {
 	height:7px;
 	margin:0 7px;
 }
+
+/*Homepage */
+
+ .HomePanel {
+	text-align: center;
+	float: left;
+	width: 468px;
+	height: 729px;
+	margin-bottom: -1px;
+ }
+ 
+ .HomePanel + .HomePanel {
+	border-left: 3px solid #FFCD48;
+	width: 469px;
+ }
+ 
+ .HomeBannerLeft {
+	height: 178px;
+	padding-right: 80px;
+	text-align: center;
+	border-bottom: solid 2px #ffcd48;
+ }
+
+ .HomeBannerRight {
+	height: 178px;
+	padding-left: 80px;
+	text-align: center;
+	border-bottom: solid 2px #ffcd48;
+ }
+ 
+ .HomePanel h1 {
+	font-size: 60px;
+	color: white;
+	margin-top: 37px;
+ }
+ 
+ .HomeLogo {
+	position: absolute;
+	top: -54px;
+	left: 332px;
+ }
+ 
+  .HomePanel + .HomePanel .banner h1 {
+	padding-right: 0px;
+	padding-left: 35px;
+ }
+ 
+ #HomeContentLeft {
+	background: ;
+ }
+
+ #HomeContentRight {
+	background: ;
+ }
+ 
+ .HomeClear {
+	height: 1px;
+	width: 1px;
+	margin-top: -1px;
+	position: relative;
+	z-index: -1;
+	clear:both;
+ }
+
+/* Header */
+
+	#Logo {
+		position: absolute;
+		top: -48px;
+		left: 18px;
+		background: url('../images/logo.png');
+		width: 159px;
+		height: 181px;
+		z-index: 1;
+	}
+
+	#SiteSection {
+		color: #ffcd48;
+		height: 42px;
+		font-size: 34px;
+		padding: 4px 0px 10px 196px;
+		/*
+		text-shadow: rgba(0, 0, 0, 0.5) -1px 0, rgba(0, 0, 0, 0.3) -1px -1px, rgba(255, 255, 255, 0.5) 0px 1px, rgba(0, 0, 0, 0.3) -1px -1px;
+		*/
+	}
+
+	.NavLinkContainer {
+		position: relative;
+		float: left;
+	}
+	
+	.TopNavShadowControl {
+		overflow: hidden;
+		padding-bottom: 35px;
+		margin-bottom: -35px;
+	}
+	
+	#TopNav {
+		font-size: 24px;
+		float: left;
+		width: 727px;
+		padding-left: 213px;
+		background: #202020;
+		display: block;
+		border-top: 1px #2f2f2f solid;
+		border-bottom: 1px solid #1c1c1c;
+		box-shadow: 0px 0px 35px black;
+	}
+
+	#TopNav a {
+		float: left;
+		display: block;
+		text-decoration: none;
+		color: #f1f1f1;
+		position: relative;
+		  text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
+	}
+	
+	.BackEndNav {
+		margin: 5px 37px 9px 0;
+	}
+	
+	.FrontEndNav {
+		margin: 5px 90px 9px 0;
+	}
+	
+	#TopNav a:hover {
+		color: #bdbdbd;
+	}
+
+	#ActiveNavLink {
+		text-shadow: 0em 0em 0em #7E6B49 inset;
+	}
+/*
+	#TopNav a:before, #TopNav a:after {
+		content: attr(title);
+		color: rgba(255,255,255,.1);
+		position: absolute;
+		z-index: 1;
+	}
+	
+	#TopNav a:before { top: 1px; left: 1px }
+	
+	#TopNav a:after  { top: 2px; left: 2px }
+
+*/
+		/* http://dabblet.com/gist/1609945 */
+		
+	.depth {
+		display: block;
+		padding: 50px;
+		color: black;
+		font: bold 7em Arial, sans-serif;
+		position: relative;
+	}
+
+	.depth:before, .depth:after {
+		content: attr(title);
+		padding: 50px;
+		color: rgba(255,255,255,.1);
+		position: absolute;
+	}
+	
+	.depth:before { top: 1px; left: 1px }
+	
+	.depth:after  { top: 2px; left: 2px }
+	
+	/*Content*/
+	
+	.PageTitle {
+		margin: 0px 130px 20px 130px;
+	}
+	
+	.PageDescription {
+		margin: 0px 130px 20px 130px;
+		font-size: 18px;
+		font-weight: bold;
+		color: #E6E6E6;
+	}
+	
+	.PageContent {
+		margin: 0px 130px 20px 130px;
+		font-size: 18px;
+		font-weight: bold;
+		color: #E6E6E6;
+	}
+	
+	.PageContent a {
+		color: white;
+		text-decoration: none;
+	}
+	
+	.PageContent a:hover {
+		color: #FFF2D2;
+	}
+	
+	/* Courses */
+	
+	.CourseInstance {
+		width: 100%;
+		display: block;
+		margin-left: 42px;
+		padding-left: 32px;
+		padding-bottom: 20px;
+		background: url('../images/ShieldBullet.png') no-repeat 2px 0px;
+	}
+
+/* Events */
+
+	.EventInstance {
+		margin: 0 130px 20px;
+		
+	}
+
+	.EventPropLabel {
+		float: left;
+		width: 90px;
+	}
+
+	.EventProp {
+	}
+	
+	.EventTitle {
+		float: left;
+	}
+	
+	.EventDate {
+	}
+		
+/* Admin */
+

@@ -29,6 +29,7 @@ class Admin extends CI_Controller
 	public function index()
 	{ //echo "HERE"; die();
 		$data["error"] = "";
+		$data["page_title"] = "Admin Login";
 		if( $this->input->post('submit') ) 
 		{
 		  if ( $this->input->post('username') == "" || $this->input->post('password') == "" )
@@ -49,7 +50,7 @@ class Admin extends CI_Controller
 			  {
 				  //print_r($data['query'],true);
 				  //exit;
-				  redirect(base_url().'_index.php?admin/page', 'refresh');
+				  redirect(base_url().'index.php?admin/page', 'refresh');
 			  }
 			  else
 			  {
@@ -57,13 +58,18 @@ class Admin extends CI_Controller
 			  }
 		  }
 		}
+		$this->load->view('admin/common/header_login' , $data);		
 		$this->load->view('admin/login' , $data);		
+		$this->load->view('admin/common/footer' , $data);		
 	}
 	
 	public function page()
 	{ 
 		$this->login_check();
+		$data["page_title"] = "Control Panel";
+		$this->load->view('admin/common/header' , $data);		
 		$this->load->view('admin/default');	
+		$this->load->view('admin/common/footer');		
 	}
 	
 	
@@ -80,7 +86,7 @@ class Admin extends CI_Controller
        //$uri_segments = $this->uri->segment_array();
 	  // $data['user_id'] = $uri_segments[3];
 	   $data['msg'] = '';
-	   
+	   $data["page_title"] = "Reset Password";
 	   if ( $this->input->post('submit') ) 
 	   {
 			
@@ -100,8 +106,9 @@ class Admin extends CI_Controller
                 }
 
 	   }
-	  
-	   $this->load->view('admin/reset_password' , $data);
+  		$this->load->view('admin/common/header' , $data);		
+		$this->load->view('admin/reset_password' , $data);		
+		$this->load->view('admin/common/footer');
 	  // exit;		
 	}
 	
@@ -111,6 +118,7 @@ class Admin extends CI_Controller
 		$this->login_check(); 
 		//$this->validate_url(array("Admin","Manager"));
 		$data['msg'] = "";
+		$data["page_title"] = "Create Event";
 		$data['update_event_id'] = "";
 		$data['name'] = $this->input->post('name');
 		$data['description'] = $this->input->post('description');
@@ -124,7 +132,7 @@ class Admin extends CI_Controller
                // else
                //     $data['date'] = '';
                 
-                $data['date'] = $this->input->post('date_year').'-'.$this->input->post('date_month').'-'.$this->input->post('date_day');
+		$data['date'] = $this->input->post('date_year').'-'.$this->input->post('date_month').'-'.$this->input->post('date_day');
                 
                 
 		
@@ -136,6 +144,8 @@ class Admin extends CI_Controller
 		$data['fe_visibility'] = $this->input->post('fe_visibility');
 		$data['no_registrants'] = $this->input->post('no_registrants');
 		$data['event_type'] = $this->input->post('event_type');
+		
+		$data['event_url']= str_replace(" ", "_", (preg_replace('/[^a-zA-Z0-9_ -]/s', '', $data['event_type'])));
                 //echo "<pre>POST in controller: ";   print_r($this->input->post());   echo "</pre>";
 		if($id > 0)
 		{
@@ -190,22 +200,27 @@ class Admin extends CI_Controller
 				$data['sort_order'] = "";
 				$data['event_type'] = "";
 				$data['msg'] = "Event Added.";
+				$this->load->view('admin/common/header' , $data);
 				$this->load->view('admin/success' , $data);
+				$this->load->view('admin/common/footer');
 			}    
 			
 		}
 		else
 		{
 			   
-		}
 		if($data['msg'] != 'Event Added.')
+			$this->load->view('admin/common/header' , $data);
 			$this->load->view('admin/create_event' , $data);
+			$this->load->view('admin/common/footer');
+		}
 	}
 	
 	public function event_list($id = 0)
 	{
             //echo "HERE";
             $data['msg'] = "";
+            $data['page_title'] = "Event List";
             
             if($id > 0)
             {
@@ -322,13 +337,16 @@ class Admin extends CI_Controller
                 
             }    
             //echo "<pre>Data : ";   print_r($data);   echo "</pre>";
-            $this->load->view('admin/events_list' , $data);
+            $this->load->view('admin/common/header' , $data);
+			$this->load->view('admin/events_list' , $data);
+			$this->load->view('admin/common/footer');
+
         }
 	
         
         public function logout() {
 		$this->session->set_userdata('logged_in' , 0);
-		redirect('http://topofthelinesecurity.com/_index.php?admin');
+		redirect(base_url().'admin/', 'refresh');
 		//$data['error'] = '';
 		//$this->load->view('admin/login' , $data);	
 	}
@@ -368,7 +386,9 @@ class Admin extends CI_Controller
             //echo "<pre>csv arr "; print_r($csv_array);echo "</pre>";
             $this->csvDump($csv_array,$fh);
             $data['csv_filepath'] = $front_path;
+			$this->load->view('admin/common/header' , $data);
             $this->load->view('admin/events_list' , $data);
+			$this->load->view('admin/common/footer');
         }
         
         public function csvDump(array $fileData, $fileHandle)
@@ -385,8 +405,6 @@ class Admin extends CI_Controller
 	    }
 	  }
         }
-        
-        
         
 }	
 ?>

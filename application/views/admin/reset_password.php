@@ -5,7 +5,6 @@ header('Cache-Control: no-store, no-cache, must-revalidate');  // HTTP 1.1
 header('Cache-Control: post-check=0, pre-check=0', false);
 header('Pragma: no-cache');       
 ?>
-<?php include("header.php");?>
 <script language="javascript">
 function check_pws()
 {
@@ -36,7 +35,7 @@ function check_pws()
 -->
                <?php 
                //echo form_open("admin/reset_password",array("method"=>"post","onsubmit"=>"javascript:return check_pw_length('password');"));
-               echo form_open("".base_url()."_index.php?admin/reset_password",array("method"=>"post","onsubmit"=>"return check_pws();"));
+               echo form_open("".base_url()."index.php?admin/reset_password",array("method"=>"post","onsubmit"=>"return check_pws();"));
                ?>
                
                
@@ -84,4 +83,3 @@ function check_pws()
         </td></tr>
         </table>
 </div>  
-<?php include("footer.php");?>

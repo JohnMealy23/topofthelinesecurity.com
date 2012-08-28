@@ -5,7 +5,6 @@ header('Cache-Control: no-store, no-cache, must-revalidate');  // HTTP 1.1
 header('Cache-Control: post-check=0, pre-check=0', false);
 header('Pragma: no-cache');       
 ?>
-<?php include("header.php");?>
 
 <div id="right">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -27,5 +26,4 @@ header('Pragma: no-cache');
                 </table>
         </td></tr>
         </table>
-</div>  
-<?php include("footer.php");?>
+</div>
