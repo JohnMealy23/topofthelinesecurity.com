@@ -2,12 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Top of the Line Security Training - <?php echo $page_title; ?></title>
-<script language="javascript" type="text/javascript" src="<?php echo base_url();?>js/jquery.js" /></script>
+<meta name="description" content="For all your security needs.">
+<meta name="keywords" content="Top of the Line Security, Top of the Line Security Training, Security Personnel, Yonkers Security">
+<title>Top of the Line Security</title>
+<script language="javascript" type="text/javascript" src="<?php echo base_url();?>js/jquery-1.7.1.min.js" /></script>
 <script language="javascript" type="text/javascript" src="<?php echo base_url();?>js/functions.js" /></script>
+<link href='http://fonts.googleapis.com/css?family=Cabin+Condensed:700,600,500' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" media="all" href="<?php echo base_url();?>css/style.css">
-<link type="text/css" rel="stylesheet" href="<?php echo base_url();?>css/smoothness/jquery-ui-1.8.2.custom.css" />
-<link type="text/css" rel="stylesheet" href="<?php echo base_url();?>css/styles.css" />
+
+<script>
+	$(document).ready(function(){		
+		$(".Extrude").each(
+			function() {
+				x = $(this).html();
+				$(this).attr('title',x);
+		})
+	});
+</script>
 </head>
 <body>
 	<div id="main">
@@ -23,7 +34,7 @@
 					
 					 <?php            
 				//View Events
-				$modules_array = array("Home"=>"home","Courses"=>"training/courses","About"=>"training/about","Contact"=>"training/about");
+				$modules_array = array("Home"=>"home","Courses"=>"training/courses","About"=>"training/about","Contact"=>"training/contact");
 				//if(isset($this->session->userdata['user_modules'])){
 				//	foreach($this->session->userdata['user_modules'] as $moduleid=>$mod_details) { 
 
@@ -41,16 +52,6 @@
     	<div id="content">
         <?php 
 		//if(isset($_SESSION["loggedin_user"]) && $_SESSION["loggedin_user"]!=""){?>
-        	
-           	<!--table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom:10px;">
-                    
-                    <tr height="3"><td></td></tr>
-                    <tr>
-                    	<td height="50" style="border: 1px solid #BCBCBC">
-                       
-                        </td></tr>
-            </table> -->
+  
             
         <?php //}?>
-<!--                <h1 class="company_name">
-                </h1>-->

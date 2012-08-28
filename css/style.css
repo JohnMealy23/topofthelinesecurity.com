@@ -14,7 +14,12 @@ a:active {
 }
 
 a:hover { 
-	color: #CACACA; 
+	color: #fff2d2; 
+	text-decoration: none;
+}
+
+a h1:hover { 
+	color: #fff2d2; 
 	text-decoration: none;
 }
 
@@ -43,6 +48,10 @@ h2 {
 	padding: 0px;
 	color: #FFCD48;
 	font-weight: bold;
+}
+
+.FloatLeft {
+	float: left;
 }
 
 #main {
@@ -129,10 +138,10 @@ h2 {
 	padding-bottom:20px;
 }
 label{
-	color: #FDFCFC;
-    font-family: Tahoma;
-    font-size: 10pt;
-    padding: 0 0 0 10px;
+	font-size: 15px;
+	text-align: left;
+	color: white;
+    padding: 0 0 0 6px;
 	font-weight:bold;
 }
 .textfield {
@@ -157,14 +166,19 @@ label{
     font-size: 9pt;
 }
 .button {
-	background-color:#6C6C6C;
+	background-color:#141212;
 	border: solid ipx #BCBCBC;
 	color:#FFF;
 	font-weight:bold;
 }
 .msg {
-	color:#00F;
+	margin: 50px 0px 20px 0px;
+	padding: 5px 0px;
+	color:white;
 	font-weight:bold;
+	width: 100%;
+	background: #363636;
+	text-align: center;
 }
 #tab_content {
 	margin-top:10px;
@@ -311,18 +325,17 @@ a:visited {
 	width: 469px;
  }
  
- .HomeBannerLeft {
+ .HomeBanner {
 	height: 178px;
 	padding-right: 80px;
 	text-align: center;
 	border-bottom: solid 2px #ffcd48;
+	text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
  }
 
  .HomeBannerRight {
-	height: 178px;
+	padding-right: 0px;
 	padding-left: 80px;
-	text-align: center;
-	border-bottom: solid 2px #ffcd48;
  }
  
  .HomePanel h1 {
@@ -337,10 +350,35 @@ a:visited {
 	left: 332px;
  }
  
+ .HomeImage {
+	margin-bottom: 16px;
+	width: 469px;
+ }
+ 
   .HomePanel + .HomePanel .banner h1 {
 	padding-right: 0px;
 	padding-left: 35px;
  }
+ 
+ .HomeBulletsLeft {
+	margin: 0px auto;
+	width: 420px;
+ }
+ .HomeBulletsRight {
+	margin: 0px auto;
+	width: 310px;
+ }
+ 
+ .CourseInstanceHome {
+	display: block;
+	padding-left: 31px;
+	padding-bottom: 20px;
+	background: url('../images/ShieldBullet.png') no-repeat 2px 0px;
+	font-size: 15px;
+	text-align: left;
+	letter-spacing: 2px;
+	font-weight: bold;
+}
  
  #HomeContentLeft {
 	background: ;
@@ -494,12 +532,14 @@ a:visited {
 	/* Courses */
 	
 	.CourseInstance {
-		width: 100%;
 		display: block;
 		margin-left: 42px;
 		padding-left: 32px;
 		padding-bottom: 20px;
 		background: url('../images/ShieldBullet.png') no-repeat 2px 0px;
+		font-size: 18px;
+		font-weight: bold;
+		text-align: left;
 	}
 
 /* Events */
@@ -523,6 +563,39 @@ a:visited {
 	
 	.EventDate {
 	}
-		
+
+/*Contact Us*/
+
+	.ContactForm {
+		width: 600px;
+	}
+
+	#form1 {
+		margin: 45px 130px 20px 130px;
+	}
+	
+	legend {
+		font-size: 24px;
+		margin: 0px;
+		padding: 0px;
+		color: #FFCD48;
+		font-weight: bold;
+	}
+	
+	fieldset {
+		border: 0px;
+	}
+	
+	#form1 .container {
+		margin-top: 15px;
+		margin-right: 30px;
+	}
+
 /* Admin */
 
+
+.Five {
+	width: 500px;
+	height: 500px;
+	padding: 50px;
+}

@@ -33,9 +33,7 @@ class Courses extends CI_Controller {
 		$this->load->library('session');
 		$this->load->model('Users_model');
 		//$this->load->model('Users_model');
-                $this->load->helper('form');
-		
-		//$this->login_check();
+        $this->load->helper('form');
 	}
     
     

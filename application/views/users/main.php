@@ -32,4 +32,7 @@ header('Pragma: no-cache');
 			}
 		}    
 		?>
+		<div class="CourseInstance">
+			<a href="<?php echo base_url()."training/contact/"; ?>">Private Instruction</a>
+		</div>
 	</div>
