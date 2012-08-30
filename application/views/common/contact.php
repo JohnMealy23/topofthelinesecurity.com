@@ -1,9 +1,29 @@
- 		<?php if($msg != '') { ?>			
+ 		<script language="javascript">
+			function check_empty()
+			{
+				var name = document.getElementById('name').value;
+				var email = document.getElementById('email').value;	
+				var query_type = document.getElementById('query_type').value;
+				var message = document.getElementById('message').value;
+				var confirmCaptcha = document.getElementById('confirmCaptcha').value;
+				if(confirmCaptcha == '' || name == '' || email == '' || query_type == '' || message == "")
+				{
+					alert("Please fill in all required fields.");
+					return false;
+				}
+				else
+				{
+					return true;
+				}	
+			}
+		</script>
+		
+		<?php if($msg != '') { ?>			
 			<div class='msg'><?php echo $msg; ?></div>
 		<?php } ?>
-		<form id="form1" method="POST" action="<?php echo base_url().'training/contact'; ?>">   
+		<?php echo form_open(base_url()."training/contact",array("id"=>"form1","method"=>"post","onsubmit"=>"return check_empty()"));?>  
 		<fieldset >
-			<legend>Contact us</legend>
+			<legend><?php echo $page_title; ?></legend>
 			<div class='short_explanation'>* required fields</div>
 			<div class='container FloatLeft'>
 				<label for='name' >Full Name*: </label><br/>
@@ -25,7 +45,7 @@
 				<span id='contactus_email_errorloc' class='error'></span>
 			</div>
 			<div class='container'>
-				<label for='message' >Please tell us about your project:*</label><br/>
+				<label for='message' >Please tell us about your needs:*</label><br/>
 				<span id='contactus_message_errorloc' class='error'></span>
 				<textarea rows="10" cols="50" name='message' id='message'></textarea>
 			</div>
@@ -33,7 +53,7 @@
 				<?php echo $captcha['image']; ?>
 			</div>
 			<div class="container">
-				<label for='confirmCaptcha' >Enter the above code here:</label><br>
+				<label for='confirmCaptcha' >Enter the above code here:*</label><br>
 				<input size="19" type="text" name="confirmCaptcha" id="confirmCaptcha" value="" maxlength="10" /><br/>
 			</div>
 

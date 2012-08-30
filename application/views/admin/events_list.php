@@ -15,25 +15,10 @@ else
      return false;
 }
 </script>
-<div id="right">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-    
-        <tr>
-            <td class="thead" height="23"><div class="dhead"><b>Add Event </b></div></td>
-        </tr>
-        <tr height="3"><td></td></tr>
-        <tr>
-            <td style="border: 1px solid #BCBCBC">
-               <!--
-<form action="<?php echo base_url();?>support/create_user" method="post">
--->
-               <?php echo form_open("".base_url()."index.php?admin/create_event",array("method"=>"post","onsubmit"=>"javascript:return check_pw_length('password');"));?>
-               
 
-                <div style="float:right; padding-right:10px;">
-<!--                    <a href="<?php echo base_url().$csv_filepath;?>" class="link">Events In CSV</a>-->
-                </div>
                 <h3 style="padding-left:5px;">Creating Event</h3>
+				   
+               <?php echo form_open("".base_url()."admin/create_event",array("method"=>"post","onsubmit"=>"javascript:return check_pw_length('password');"));?>
                 <table width="100%" cellpadding="5" border="0">
                 <?php if ($msg !="") {?>
                 <tr>
@@ -66,8 +51,8 @@ else
                     echo "<td align=center>".$user->max_num_of_registrants."</td>";
                     echo "<td align=center>".$user->event_type."</td>";
                     echo "<td>
-                            <a href=".base_url()."index.php?admin/create_event/".$user->event_id.">Edit</a>&nbsp;&nbsp;
-                            <a onclick=\"return confirm('Are you sure you want to delete this event?')\"  href=".base_url()."index.php?admin/event_list/".$user->event_id.">Delete</a>&nbsp;&nbsp;
+                            <a href=".base_url()."admin/create_event/".$user->event_id.">Edit</a>&nbsp;&nbsp;
+                            <a onclick=\"return confirm('Are you sure you want to delete this event?')\"  href=".base_url()."admin/event_list/".$user->event_id.">Delete</a>&nbsp;&nbsp;
                             <a href=".base_url()."$user->name"."_event_$user->event_id.csv>CSV</a>    
                         </td>";
                     echo "</tr>";
@@ -80,9 +65,4 @@ else
                 </table>
                 
                 
-                </form>
-                
-                
-        </td></tr>
-        </table>
-</div>  
+                </form>  

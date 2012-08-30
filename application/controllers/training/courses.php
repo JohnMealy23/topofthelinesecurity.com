@@ -28,23 +28,34 @@ class Courses extends CI_Controller {
 		header('Pragma: no-cache');                                    // HTTP 1.0
 		parent::__construct();	
 		$this->params = $this->input->get();
-		///$this->load->library('api');
 		$this->CI =&get_instance();
 		$this->load->library('session');
 		$this->load->model('Users_model');
-		//$this->load->model('Users_model');
+		$this->load->model('Nav_model');
         $this->load->helper('form');
 	}
     
     
-        public function index()
+        public function success()
+	{
+			$nav = $this->Nav_model->nav('training');
+			$data['sitesection'] = $nav['SiteSection'];
+			$data['navlinks'] = $nav['NavLinks'];
+			$data['page_title'] = 'Thank you.';
+			$this->load->view('common/header',$data);
+			$this->load->view('users/success',$data);
+			$this->load->view('common/footer',$data);
+    }
+
+		public function index()
 	{
             $data['msg'] = '';
+			$nav = $this->Nav_model->nav('training');
+			$data['sitesection'] = $nav['SiteSection'];
+			$data['navlinks'] = $nav['NavLinks'];
 			$data['page_title'] = 'Courses';
             $events_list = $this->Users_model->get_events_list();
-            //echo "<pre>events_list: ";   print_r($events_list);   echo "</pre>";
             $data['events_list'] = $events_list;
-            //$this->load->view('welcome_message');
             $this->load->view('common/header',$data);
             $this->load->view('users/main',$data);
             $this->load->view('common/footer',$data);
@@ -53,35 +64,37 @@ class Courses extends CI_Controller {
         
         public function event($event_url)
 	{
-            //echo "<br>Event url : ".$event_url; 
-            $event_detail = $this->Users_model->get_event_detail($event_url);
-            //echo "<pre>event detail in controller: ";   print_r($event_detail);   echo "</pre>";
+            $event_detail = $this->Users_model->get_event_detail($event_url);   
+			echo "</pre>";
             $data['event_detail'] = $event_detail;
-            
+			$nav = $this->Nav_model->nav('training');
+			$data['sitesection'] = $nav['SiteSection'];
+			$data['navlinks'] = $nav['NavLinks'];
 			$data['page_title'] = 'Courses';
+			$nav = $this->Nav_model->nav('training');
+			$data['sitesection'] = $nav['SiteSection'];
+			$data['navlinks'] = $nav['NavLinks'];
             $data['event_name'] = str_replace("_", " ", "$event_url");
 			$data['msg'] = '';
             $this->load->view('common/header',$data);
-            $this->load->view('users/UtahDescription.php',$data);
             $this->load->view('users/event',$data);
             $this->load->view('common/footer',$data);
         }
         
         public function registration($type = 0,$event_id=0)
 	{
-           // echo "<pre>POST: ";   print_r($_POST);   echo "</pre>";
-            //echo "<br>Type : ".$type;
             $data['msg'] = "";
+			$nav = $this->Nav_model->nav('training');
+			$data['sitesection'] = $nav['SiteSection'];
+			$data['navlinks'] = $nav['NavLinks'];
             $data['user_added'] = "0";
 			$event_detail = $this->Users_model->get_event_detail_from_id($event_id);
-            //echo "<pre>event_detail: ";   print_r($event_detail);   echo "</pre>";
-		//	echo "<br>Price : ".$event_detail[0]->price;
             if($this->input->post('submit'))
             {
                 $data['event_type'] = $this->input->post('event_type');
                 $data['event_id'] = $this->input->post('event_id');
-                $data['date'] = $this->input->post('date');
-                $data['surname'] = $this->input->post('surname');
+                //$data['date'] = $this->input->post('date');
+                //$data['surname'] = $this->input->post('surname');
                 $data['f_name'] = $this->input->post('f_name');
                 $data['l_name'] = $this->input->post('l_name');
                 $data['suffix'] = $this->input->post('suffix');
@@ -90,7 +103,6 @@ class Courses extends CI_Controller {
                 $data['state'] = $this->input->post('state');
                 $data['zip'] = $this->input->post('zip');
                 $data['phone'] = $this->input->post('phone');
-                
                 $data['m_name'] = $this->input->post('m_name');
                 $data['name_on_certificate'] = $this->input->post('name_on_certificate');
                 $data['email'] = $this->input->post('email');
@@ -98,10 +110,6 @@ class Courses extends CI_Controller {
                 $message = $this->Users_model->add_registration($data);
                 
                 $data['type'] = $this->input->post('event_type');
-                
-                ?>
-                
-                <?PHP
                 
                 $data['msg'] = "User registered.";
 				
@@ -114,14 +122,16 @@ class Courses extends CI_Controller {
                 $data['event_id'] = $event_id;
                 $data['type'] = $type;
             } 
+			
 			$data['event_detail'] = $event_detail;   
             $this->load->view('common/header',$data);
             $this->load->view('users/add_registration',$data);
             $this->load->view('common/footer',$data);
+			
             if($data['msg'] == "User registered.")
             {
-                $return_url = base_url()."courses/success"; 
-                $cancel_url = base_url()."courses/registration/".$data['type']."/".$data['event_id']; 
+                $return_url = "http://dev.topofthelinesecurity.com/training/courses/success"; 
+                $cancel_url = "http://dev.topofthelinesecurity.com/training/courses/registration/".$data['type']."/".$data['event_id'];
                 
                 //echo "<br>Price 2nd  : ".$this->input->post('this_event_price');
     ?>
@@ -143,12 +153,10 @@ class Courses extends CI_Controller {
         <input type="hidden" name="cancel_return" value="<?php echo $cancel_url; ?>">
         <input type="hidden" name="return" value="<?php echo $return_url; ?>">
         <input type="hidden" name="rm" value="2">
-
-    
     </form>
 
                 <script language="javascript">
-                   // alert("here2");
+                // alert("here2");
                 //document.paypal_form.submit();
                 document.tt.submit();
                 </script>        
@@ -162,4 +170,3 @@ class Courses extends CI_Controller {
 
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */
-?>

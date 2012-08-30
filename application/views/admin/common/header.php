@@ -11,7 +11,6 @@
 		$(".Extrude").each(
 			function() {
 				x = $(this).html();
-				alert(x);
 				$(this).attr('title',x);
 		})
 	});
@@ -21,9 +20,10 @@
 	<div id="main">
     	<div id="header">
 			<!--<div class="main-head">Admin Panel</div>-->
-			<div id="Logo">
-			</div>
-			<div id="SiteSection" class="Extrude">
+			<a href="<?php echo base_url(); ?>">
+				<div id="Logo"></div>
+			</a>
+			<div id="SiteSection">
 				<h1><?php echo $page_title; ?></h1>
 			</div>
 			<div class="TopNavShadowControl">

@@ -8,8 +8,10 @@ header('Pragma: no-cache');
 	<div class="ContentImage">
 		<img src="/images/CoursesBackground.png">
 	</div>
-    <div class="PageTitle"><h2><?php echo $page_title; ?></h2></div>
-	<div class="PageDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</div>
+	<div class="PageDescription">
+		<h2><?php echo $page_title; ?></h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
+	</div>
            <!--<form action="<?php echo base_url();?>support/create_user" method="post">-->
                
 

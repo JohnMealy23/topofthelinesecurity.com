@@ -24,23 +24,22 @@
 	<div id="main">
     	<div id="header">
 			<!--<div class="main-head">Admin Panel</div>-->
-			<div id="Logo">
-			</div>
-			<div id="SiteSection" class="Extrude">
-				<h1>Top of the Line Security Training</h1>
+			<a href="<?php echo base_url(); ?>">
+				<div id="Logo"></div>
+			</a>
+			<div id="SiteSection">
+				<h1><?php echo $sitesection; ?></h1>
 			</div>
 			<div class="TopNavShadowControl">
 				<div id="TopNav">
 					
-					 <?php            
-				//View Events
-				$modules_array = array("Home"=>"home","Courses"=>"training/courses","About"=>"training/about","Contact"=>"training/contact");
+					 <?php       
 				//if(isset($this->session->userdata['user_modules'])){
 				//	foreach($this->session->userdata['user_modules'] as $moduleid=>$mod_details) { 
 
-				if(isset($modules_array))
+				if(isset($navlinks))
 				{
-					foreach($modules_array as $mod_name=>$mod_link)
+					foreach($navlinks as $mod_name=>$mod_link)
 					{ ?>
 							<a class="FrontEndNav" href="<?php echo base_url();?><?php echo $mod_link;?>" class="NavLink" title="<?php echo $mod_name;?>"><?php echo $mod_name;?></a>
 

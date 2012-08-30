@@ -1,20 +1,5 @@
-	<?php 
-		include('header.php');
-	?>
-	<!--End Header Div-->          
-            <div id="Content" class="Fader">
-				<div class="SpacerDiv"></div>
-				<div class="GeneralNotice">
-					<p>Thank you for your message.  We'll be in touch very soon.</p>
-					<p></p>
-					<p><img src="images/Notion_Logo.jpg" id="SignatureGraphic"></p>
-				</div>		
-		</div><!--End Content-->
-		
-	</div><!--End Container-->
-	
-<script type='text/javascript'>
-
-</script>
-
-</body></html>
+    <div class='SpacerDiv'></div>
+	<div class="PageTitle"><h2><?php echo $page_title; ?></h2></div>
+	<div class="PageDescription">
+		<p>We'll be in contact with you shortly.</p>
+	</div>

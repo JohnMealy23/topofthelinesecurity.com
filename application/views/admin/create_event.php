@@ -79,7 +79,7 @@ function date_dropdown($year_limit = 10){
         <tr>
             <td>
 
-               <?php echo form_open("".base_url()."index.php?admin/create_event",array("method"=>"post","onsubmit"=>"return check_empty()"));?>
+               <?php echo form_open(base_url()."admin/create_event",array("method"=>"post","onsubmit"=>"return check_empty()"));?>
                
                <?PHP
                if($update_event_id != '')

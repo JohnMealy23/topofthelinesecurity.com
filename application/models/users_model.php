@@ -32,46 +32,25 @@ class Users_model extends CI_Model
     //public function add_event($new_user_vals , $arrgroup)
     public function add_registration($new_user_vals)
     {
-        //echo "<pre>POST in model: ";   print_r($new_user_vals);   echo "</pre>"; die();
-        //$user_chk = $this->db->query("SELECT Username FROM supportpanel_users WHERE Username='".$new_user_vals['username']."'");
-        //if($user_chk->num_rows > 0)
-        // {
-                //return 2;
-        //}
-        //else
-        //{
-            $insert_q = "INSERT INTO registered_users (class_date , surname , first_name , last_name , suffix , street_address,city,state,zip,phone,middle_name,name_on_certificate,email,event_id,event_type) 
-                        VALUES (".$this->db->escape($new_user_vals['date'])." , ".$this->db->escape($new_user_vals['surname'])." ,
-                        ".$this->db->escape($new_user_vals['f_name'])." , ".$this->db->escape($new_user_vals['l_name'])." ,
+            $insert_q = "INSERT INTO registered_users (first_name , last_name , suffix , street_address,city,state,zip,phone,middle_name,name_on_certificate,email,event_id,event_type) 
+                        VALUES (".$this->db->escape($new_user_vals['f_name'])." , ".$this->db->escape($new_user_vals['l_name'])." ,
                         ".$this->db->escape($new_user_vals['suffix'])." , ".$this->db->escape($new_user_vals['street_address'])." ,
                         ".$this->db->escape($new_user_vals['city'])." , ".$this->db->escape($new_user_vals['state'])." ,
                         ".$this->db->escape($new_user_vals['zip'])." , ".$this->db->escape($new_user_vals['phone'])." ,
                         ".$this->db->escape($new_user_vals['m_name'])." , ".$this->db->escape($new_user_vals['name_on_certificate'])." ,    
                         ".$this->db->escape($new_user_vals['email'])." , 
                         ".$this->db->escape($new_user_vals['event_id'])." , ".$this->db->escape($new_user_vals['event_type']).")";
-            //echo "<br>insert_q : ".$insert_q;
-            //die();
+
             $query = $this->db->query($insert_q);
             return 1;                         
-        //$uid = $this->db->insert_id();	
-        //$member = $this->db->query("SELECT ID FROM supportpanel_usergroups WHERE Name='Member'");
-        //echo 'Query: '.$this->db->last_query();
-        //$member_group = $member->row_array();
-        //print_r($arrgroup);
-        //exit;
-        //}
+
     }
 
 
     public function get_events_list()
     {
-        // $get_events_q = "SELECT count( * ) , `event_type`
-        //            FROM `registered_users`
-        //          GROUP BY `event_type`";
-
         $get_events_q = "SELECT group_concat( DISTINCT event_type ) as events FROM  events where fo_visibility = 1";
-
-
+		
         $query = $this->db->query($get_events_q);
         if( $query->num_rows() > 0 ) {
         return $query->result();

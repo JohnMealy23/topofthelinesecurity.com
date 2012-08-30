@@ -28,25 +28,20 @@ class About extends CI_Controller {
 		header('Pragma: no-cache');                                    // HTTP 1.0
 		parent::__construct();	
 		$this->params = $this->input->get();
-		///$this->load->library('api');
 		$this->CI =&get_instance();
 		$this->load->library('session');
 		$this->load->model('Users_model');
-		//$this->load->model('Users_model');
-                $this->load->helper('form');
-		
-		//$this->login_check();
+		$this->load->model('Nav_model');
+		$this->load->helper('form');
 	}
-    
     
         public function index()
 	{
             $data['msg'] = '';
 			$data['page_title'] = 'About';
-            $events_list = $this->Users_model->get_events_list();
-            //echo "<pre>events_list: ";   print_r($events_list);   echo "</pre>";
-            $data['events_list'] = $events_list;
-            //$this->load->view('welcome_message');
+			$nav = $this->Nav_model->nav('training');
+			$data['sitesection'] = $nav['SiteSection'];
+			$data['navlinks'] = $nav['NavLinks'];
             $this->load->view('common/header',$data);
             $this->load->view('common/about',$data);
             $this->load->view('common/footer',$data);
