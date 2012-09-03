@@ -2,10 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Events</title>
+<title>Control Panel</title>
 <script language="javascript" type="text/javascript" src="<?php echo base_url();?>js/jquery-1.7.1.min.js" /></script>
 <script language="javascript" type="text/javascript" src="<?php echo base_url();?>js/functions.js" /></script>
 <link rel="stylesheet" media="all" href="<?php echo base_url();?>css/style.css">
+<link rel="icon" href="<?php echo base_url(); ?>favicon.ico">
 <script>
 	$(document).ready(function(){		
 		$(".Extrude").each(

@@ -34,19 +34,7 @@ class Courses extends CI_Controller {
 		$this->load->model('Nav_model');
         $this->load->helper('form');
 	}
-    
-    
-        public function success()
-	{
-			$nav = $this->Nav_model->nav('training');
-			$data['sitesection'] = $nav['SiteSection'];
-			$data['navlinks'] = $nav['NavLinks'];
-			$data['page_title'] = 'Thank you.';
-			$this->load->view('common/header',$data);
-			$this->load->view('users/success',$data);
-			$this->load->view('common/footer',$data);
-    }
-
+	
 		public function index()
 	{
             $data['msg'] = '';
@@ -61,6 +49,16 @@ class Courses extends CI_Controller {
             $this->load->view('common/footer',$data);
 	}
         
+	public function success()
+	{
+			$nav = $this->Nav_model->nav('training');
+			$data['sitesection'] = $nav['SiteSection'];
+			$data['navlinks'] = $nav['NavLinks'];
+			$data['page_title'] = 'Thank you.';
+			$this->load->view('common/header',$data);
+			$this->load->view('users/success',$data);
+			$this->load->view('common/footer',$data);
+    }
         
         public function event($event_url)
 	{
@@ -84,6 +82,7 @@ class Courses extends CI_Controller {
         public function registration($type = 0,$event_id=0)
 	{
             $data['msg'] = "";
+			$data['event_name'] = str_replace("_", " ", "$type");
 			$nav = $this->Nav_model->nav('training');
 			$data['sitesection'] = $nav['SiteSection'];
 			$data['navlinks'] = $nav['NavLinks'];
@@ -130,17 +129,15 @@ class Courses extends CI_Controller {
 			
             if($data['msg'] == "User registered.")
             {
-                $return_url = "http://dev.topofthelinesecurity.com/training/courses/success"; 
-                $cancel_url = "http://dev.topofthelinesecurity.com/training/courses/registration/".$data['type']."/".$data['event_id'];
-                
-                //echo "<br>Price 2nd  : ".$this->input->post('this_event_price');
+                $return_url = "http://topofthelinesecurity.com/training/courses/success"; 
+                $cancel_url = "http://topofthelinesecurity.com/training/courses";
     ?>
 
     
-	<form name="tt" id="tt" action="https://www.sandbox.paypal.com/cgi-bin/webscr">    
+	<form name="tt" id="tt" action="https://www.paypal.com/cgi-bin/webscr">    
         <input type="hidden" name="upload" value="1">
         <input type="hidden" name="cmd" value="_cart">
-        <input type="hidden" name="business" value="fowl82_1338183159_biz@hotmail.com">
+        <input type="hidden" name="business" value="topofthelinesecuritytraining@gmail.com">
         <input type="hidden" name="item_name_1" value="Event Payment">
         <input type="hidden" name="amount_1" value="<?=$this->input->post('this_event_price')?>">
         <input type="hidden" name="no_shipping" value="2">

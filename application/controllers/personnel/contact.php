@@ -4,12 +4,7 @@ class Contact extends CI_Controller {
 	
          public function __construct()
 	{ 	
-		
-		header('Expires: Mon, 14 Oct 2002 05:00:00 GMT');              // Date in the past
-		header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT'); // always modified
-		header('Cache-Control: no-store, no-cache, must-revalidate');  // HTTP 1.1
-		header('Cache-Control: post-check=0, pre-check=0', false);
-		header('Pragma: no-cache');                                    // HTTP 1.0
+		session_start();
 		parent::__construct();	
 		$this->params = $this->input->get();
 		$this->CI =&get_instance();
@@ -18,7 +13,6 @@ class Contact extends CI_Controller {
 		$this->load->model('Nav_model');
         $this->load->helper('form');
 		$this->load->library('email');
-		session_start();
 	}
     
         public function index()
@@ -33,7 +27,7 @@ class Contact extends CI_Controller {
 		  
 		  $data['captcha'] = $captcha;
 		  $data['msg'] = '';
-		  $data['page_title'] = 'Contact';
+		  $data['page_title'] = 'Contact Form';
 		  $this->load->view('common/header', $data);
 		  $this->load->view('personnel/contact', $data);
 		  $this->load->view('common/footer', $data);
@@ -46,7 +40,7 @@ class Contact extends CI_Controller {
 			//If captcha matches:
 			//Compose email:
 			$Sender = $_POST['email'];
-			$Recipient = 'a.pointe@gmail.com';
+			$Recipient = 'topofthelinesecurity@gmail.com';
 			$Subject = $_POST['query_type'];
 			$SenderName = $_POST['name'];
 			$Message = $_POST['message'];

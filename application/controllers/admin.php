@@ -6,12 +6,6 @@ class Admin extends CI_Controller
  	
 	public function __construct()
 	{ 	
-		
-		header('Expires: Mon, 14 Oct 2002 05:00:00 GMT');              // Date in the past
-		header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT'); // always modified
-		header('Cache-Control: no-store, no-cache, must-revalidate');  // HTTP 1.1
-		header('Cache-Control: post-check=0, pre-check=0', false);
-		header('Pragma: no-cache');                                    // HTTP 1.0
 		parent::__construct();	
 		$this->params = $this->input->get();
 		///$this->load->library('api');
@@ -138,10 +132,6 @@ class Admin extends CI_Controller
 		}    
 		elseif($this->input->post('submit'))
 		{
-			//$data['fe_visibility'] = $this->input->post('fe_visibility');
-			//echo "<br>Event id to update: ".$this->input->post('event_id_to_update');
-			//die();
-			//if(isset($this->input->post('event_id_to_update')) && $this->input->post('event_id_to_update') > 0)
 			if($this->input->post('event_id_to_update') > 0)    
 			{
 				//echo "<br>In update case";    
@@ -184,10 +174,11 @@ class Admin extends CI_Controller
 		{
 		
 		}
-		if($data['msg'] != 'Event Added.')
+		if($data['msg'] != 'Event Added.'){
 			$this->load->view('admin/common/header' , $data);
 			$this->load->view('admin/create_event' , $data);
 			$this->load->view('admin/common/footer');
+		};
 	}
 	
 	public function event_list($id = 0)
@@ -206,7 +197,7 @@ class Admin extends CI_Controller
             /**** Creating CSV file start ********/
             //echo "<br>Cwd: ".getcwd(); //die();
             $front_path = 'events.csv';
-            $file1Location = $front_path;
+            $file1Location = "./tmp/csv/".$front_path;
             $fh = fopen( $file1Location, 'w') or die("can't open file"); 
            
             $type_array = array('Date'=>'Date','Price'=>'Price','Number of paid users'=>'paid_user_type_count','Total number of stations created'=>'stations_created','Total number of playlists created'=>'playlist_created','Total number of likes'=>'likes_count','Total number of dislikes'=>'dislikes_count');
@@ -239,7 +230,7 @@ class Admin extends CI_Controller
             
             //echo "<pre>csv arr "; print_r($csv_array);echo "</pre>";
             $this->csvDump($csv_array,$fh);
-            $data['csv_filepath'] = $front_path;
+            $data['csv_filepath'] = $file1Location;
 
             /**** Creating CSV file end   ********/
             
@@ -259,7 +250,7 @@ class Admin extends CI_Controller
                 /****** each event cvs file starts ***/
 				$this_event_name = str_replace(" ","_",$event_name);
                 $this_front_path = $this_event_name.'_event_'.$event_id.'.csv';
-                $this_file1Location = $this_front_path;
+                $this_file1Location = "./tmp/csv/".$this_front_path;
                 $fh = fopen( $this_file1Location, 'w') or die("can't open file"); 
                 
                 $csv_array = array(); 
@@ -298,7 +289,7 @@ class Admin extends CI_Controller
                 $this->csvDump($csv_array,$fh);
 				//echo "<br>Event name : ".$event_name;
 				//echo "<br>this_front_path : ".$this_front_path;
-                $data[$event_name.'_csv_filepath_'.$event_id] = $this_front_path;
+                $data[$event_name.'_csv_filepath_'.$event_id] = $this_file1Location;
                 /****** each event cvs file ends ***/
                 
                 
@@ -324,7 +315,7 @@ class Admin extends CI_Controller
         {
             //echo "<br>Cwd: ".getcwd(); //die();
             $front_path = 'events.csv';
-            $file1Location = $front_path;
+            $file1Location = "./tmp/csv/".$front_path;
             $fh = fopen( $file1Location, 'w') or die("can't open file"); 
            
             $type_array = array('Date'=>'Date','Price'=>'Price','Number of paid users'=>'paid_user_type_count','Total number of stations created'=>'stations_created','Total number of playlists created'=>'playlist_created','Total number of likes'=>'likes_count','Total number of dislikes'=>'dislikes_count');
@@ -353,7 +344,7 @@ class Admin extends CI_Controller
             
             //echo "<pre>csv arr "; print_r($csv_array);echo "</pre>";
             $this->csvDump($csv_array,$fh);
-            $data['csv_filepath'] = $front_path;
+            $data['csv_filepath'] = $file1Location;
 			$this->load->view('admin/common/header' , $data);
             $this->load->view('admin/events_list' , $data);
 			$this->load->view('admin/common/footer');

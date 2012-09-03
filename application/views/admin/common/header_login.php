@@ -3,20 +3,23 @@
 <head>
         
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Event Management Admin Panel</title>
+<title>Control Panel</title>
 <script language="javascript" type="text/javascript" src="<?php echo base_url();?>js/jquery.js" /></script>
 <script language="javascript" type="text/javascript" src="<?php echo base_url();?>js/functions.js" /></script>
 <link rel="stylesheet" media="all" href="<?php echo base_url();?>css/style.css">
+<link rel="icon" href="<?php echo base_url(); ?>favicon.ico">
 </head>
 <body>
 	<div id="main">
        	<div id="header">
 			<!--<div class="main-head">Admin Panel</div>-->
-			<div id="Logo">
+			<a href="<?php echo base_url(); ?>">
+				<div id="Logo"></div>
+			</a>
 			</div>
 			<div id="SiteSection" class="Extrude">
 				<h1><?php echo $page_title; ?></h1>
 			</div>
-		</div>
+
     	<div id="content">
       

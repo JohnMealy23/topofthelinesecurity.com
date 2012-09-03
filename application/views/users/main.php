@@ -1,16 +1,10 @@
-<?php 
-header('Expires: Mon, 14 Oct 2002 05:00:00 GMT');              // Date in the past
-header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT'); // always modified
-header('Cache-Control: no-store, no-cache, must-revalidate');  // HTTP 1.1
-header('Cache-Control: post-check=0, pre-check=0', false);
-header('Pragma: no-cache');       
-?>
-	<div class="ContentImage">
-		<img src="/images/CoursesBackground.png">
+	<div class="BannerBorder">
+		<div class="BannerBorderOverlay"></div>
+		<img src="/images/TopOfTheLineSecurity_Training_Courses.jpg" class="BannerImg">
 	</div>
 	<div class="PageDescription">
 		<h2><?php echo $page_title; ?></h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
+		<p>We offer comprehensive courses to get you the knowledge and certification you need to jumpstart your career.  Pick from the choices below, and let's get started.</p>
 	</div>
            <!--<form action="<?php echo base_url();?>support/create_user" method="post">-->
                

@@ -21,12 +21,13 @@
 		<?php if($msg != '') { ?>			
 			<div class='msg'><?php echo $msg; ?></div>
 		<?php } ?>
+
 		<?php echo form_open(base_url()."training/contact",array("id"=>"form1","method"=>"post","onsubmit"=>"return check_empty()"));?>  
 		<fieldset >
 			<legend><?php echo $page_title; ?></legend>
 			<div class='short_explanation'>* required fields</div>
 			<div class='container FloatLeft'>
-				<label for='name' >Full Name*: </label><br/>
+				<label for='name' >Full Name:* </label><br/>
 				<input type='text' name='name' id='name' value='' maxlength="50" /><br/>
 				<span id='contactus_name_errorloc' class='error'></span>
 			</div>
@@ -64,3 +65,14 @@
 
 			</fieldset>
 		</form>
+		
+				
+		<div class="ContactInfo">
+			<h2>Contact Info</h2>
+			<p>P: 914.376.7400<br>
+			<p>F: 914.376.7401</p>
+			<p>Top of the Line Security, Inc.<br>
+			34 Prospect St. -- #B-3-8<br>
+			Yonkers, NY  10701</p>
+		</div>
+		

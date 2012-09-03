@@ -1,12 +1,6 @@
-<?php 
-header('Expires: Mon, 14 Oct 2002 05:00:00 GMT');              // Date in the past
-header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT'); // always modified
-header('Cache-Control: no-store, no-cache, must-revalidate');  // HTTP 1.1
-header('Cache-Control: post-check=0, pre-check=0', false);
-header('Pragma: no-cache');       
-?>
-
-	<h3 style="padding-left:5px;">Event Registration</h3>
+	<div class="SpacerDiv"></div>
+	<div class="PageDescription">
+	<h2><?php echo $event_name; ?> Registration</h2>
 		<?PHP
 	echo form_open(base_url()."training/courses/registration",array("method"=>"post","onsubmit"=>"javascript:return validate_register_values()"));
 	?>
@@ -21,15 +15,21 @@ header('Pragma: no-cache');
 		{    
 		
 		?>
-		
+	
+	<?php
+		if($event_detail[0]->name != '') { ?>	
 		<tr>
 		<td>Name:</td>
 		<td><?=$event_detail[0]->name;?></td>
-	</tr> 
+		</tr> 
+	<?php } ?>
+	<?php
+		if($event_detail[0]->description != '') { ?>	
 	<tr>
 		<td>Description:</td>
 		<td><?=$event_detail[0]->description;?></td>
 	</tr> 
+	<?php } ?>
 	<tr>
 		<td>Price:</td>
 		<td>$<?=$event_detail[0]->price;?></td>
@@ -54,15 +54,15 @@ header('Pragma: no-cache');
 		</tr>
 		
 		<tr>
+			<td>Suffix</td>
+			<td><input type="text" name="suffix" id="suffix" value="" size="50" class="textfield" /></td>
+		</tr>
+		
+		<tr>
 			<td>Name on Certificate</td>
 			<td><input type="text" name="name_on_certificate" id="name_on_certificate" value="" size="50" class="textfield" /></td>
 		</tr>
 		
-		
-		<tr>
-			<td>Suffix</td>
-			<td><input type="text" name="suffix" id="suffix" value="" size="50" class="textfield" /></td>
-		</tr>
 		<tr>
 			<td>Street Address*</td>
 			<td><input type="text" name="street_address" id="street_address" value="" size="50" class="textfield" /></td>
@@ -114,3 +114,4 @@ header('Pragma: no-cache');
 		}
 		?>
 
+</div>

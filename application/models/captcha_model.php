@@ -4,8 +4,10 @@ class Captcha_model extends CI_Model
 {
 
   private $vals = array();
-
-  private $baseUrl  = 'http://dev.topofthelinesecurity.com/';
+	
+	//private $baseUrl  = 'http://dev.topofthelinesecurity.com/';
+	private $baseUrl  = 'http://topofthelinesecurity.com/';
+	
   private $basePath = './';
 
   private $captchaImagePath = 'tmp/captcha/';

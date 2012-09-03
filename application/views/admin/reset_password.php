@@ -1,10 +1,3 @@
-<?php 
-header('Expires: Mon, 14 Oct 2002 05:00:00 GMT');              // Date in the past
-header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT'); // always modified
-header('Cache-Control: no-store, no-cache, must-revalidate');  // HTTP 1.1
-header('Cache-Control: post-check=0, pre-check=0', false);
-header('Pragma: no-cache');       
-?>
 <script language="javascript">
 function check_pws()
 {
@@ -21,27 +14,12 @@ function check_pws()
 	
 }
 </script>
+<div class="AdminContainer">
 <div id="right">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-    
-        <tr>
-            <td class="thead" height="23"><div class="dhead"><b>Reset Password </b></div></td>
-        </tr>
-        <tr height="3"><td></td></tr>
-        <tr>
-            <td style="border: 1px solid #BCBCBC">
-               <!--
-<form action="<?php echo base_url();?>support/create_user" method="post">
--->
+	<h2>Reset Password</h2>
                <?php 
-               //echo form_open("admin/reset_password",array("method"=>"post","onsubmit"=>"javascript:return check_pw_length('password');"));
                echo form_open("".base_url()."index.php?admin/reset_password",array("method"=>"post","onsubmit"=>"return check_pws();"));
                ?>
-               
-               
-
-                
-                <h3 style="padding-left:5px;">Reset Password</h3>
                 <table width="100%" cellpadding="5">
                 <?php if ($msg !="") {?>
                 <tr>
@@ -79,7 +57,5 @@ function check_pws()
                 
                 </form>
                 
-                
-        </td></tr>
-        </table>
+	</div>
 </div>  
